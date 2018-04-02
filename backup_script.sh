@@ -28,7 +28,7 @@ ssh $user@$dest_node 'crontab -l > /home/search/cron_backup_$backtup_date'
 if [ "$?" -eq "0" ];then
 	echo "Cron backup completed on $dest_node." >> $logfile
 {
-	ssh $user@$dest_node 'crontab -r' 
+	ssh $user@$dest_node 'crontab -r'
 	if [ "$?" -eq "0" ];then
 	echo "Cron deleted for $user user." >> $logfile
 	else
@@ -77,7 +77,7 @@ echo " RSYNC Backup from $src_node to $dest_node.\n " >> $log_file
 echo "\n------------------------------------------------------------------------------------------------------\n" >> $log_file
 echo "\nStarting backup process on $src_node." >> $logfile
 #scp -pr $src_dir $user@$dest_node:$dest_dir/$backup_date &
-rsync -aP $src_dir $user@$dest_node:$dest_dir/$backup_date 
+rsync -aP $src_dir $user@$dest_node:$dest_dir/$backup_date
 if [ "$?" -eq "0" ];then
 echo "\nBackup completed on $dest_node successfully on $dest_node.\n" >> $logfile
 else
@@ -127,17 +127,3 @@ fi
 sleep 10
 echo "\n------------------------------------------------------------------------------------------------------\n" >> $log_file
 echo " ######################################################   DONE ########################################" >> $log_file
-
-
-
-
-
-
-
-GE SDG-Internal
-
-
-
-
-
-
